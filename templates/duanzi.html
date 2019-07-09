@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!--      移动设备设置-->
+      <title>段子标题页</title>
+      <link href="/static/app01/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/static/app01/css/main.css" rel="stylesheet">
+<!--      自己写的CSS放在下面-->
+  </head>
+  <body>
+ {% include 'header.html' %}
+<section id="tiaoshu">
+    <div class="container">
+        <div>
+       <span>段子总数：{{ num }}条</span>
+        &nbsp;&nbsp;&nbsp;<span><a href="/add_duanzi/">写段子</a></span>
+        </div>
+    </div>
+</section>
+
+
+ {%  for duanzi in duanzi_all %}
+ <section id="duanzi_title">
+     <div class="container">
+         <div class="jumbotron">
+             <h3 class="post-title">{{ duanzi.title }}</h3>
+             <div class="post-meta">
+                 <time class="post-date">{{ duanzi.add_time }}</time>
+                 &nbsp;&nbsp;<span>作者：{{ duanzi.author }}</span>
+             </div>
+             <div class="post-content"><p>{{ duanzi.content }}</p>
+             </div>
+         </div>
+     </div>
+ </section>
+ {% endfor %}
+
+
+
+
+
+ <!--脚注区域-->
+    <footer id="footer">
+      <div class="container">
+          <span>wloq保留所有解释权力，有任何疑问联系:13640561011</span>
+      </div>
+    </footer>
+    <!--/脚注区域-->
+    <script src="/static/app01/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/app01/js/bootstrap.min.js"></script>
+    <script src="/static/app01/js/main.js"></script>
+  <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+  </body>
+</html>
